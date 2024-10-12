@@ -1,21 +1,19 @@
 using System;
-using System.IO; 
+using System.IO;
 
 class Program
 {
     static void Main(string[] args)
     {
-        
         Program program = new Program();
         program.Menu();
-
     }
 
-    public void Menu() {
-
-                Journal journal = new Journal();
+    public void Menu()
+    {
+        Journal journal = new Journal();
         Prompts prompts = new Prompts();
-        
+
         bool running = true;
         while (running)
         {
@@ -52,8 +50,8 @@ class Program
                     Console.Write("Enter filename to delete entry: ");
                     string filename = Console.ReadLine();
                     journal.DeleteEntry(titleToDelete, filename);
-                    break;  
-                
+                    break;
+
                 case "6":
                     running = false;
                     break;
@@ -65,7 +63,6 @@ class Program
         }
     }
 
-
     private void Write(Journal journal, Prompts prompts)
     {
         string prompt = prompts.GeneratePrompt();
@@ -74,7 +71,6 @@ class Program
         string content = Console.ReadLine();
         Console.Write("Enter Journal Entry title: ");
         string title = Console.ReadLine();
-
 
         string date = DateTime.Now.ToString("MM/dd/yyyy");
         journal.AddEntry(title, date, prompt, content);
@@ -94,6 +90,4 @@ class Program
     {
         journal.Load(filename);
     }
-
-
 }

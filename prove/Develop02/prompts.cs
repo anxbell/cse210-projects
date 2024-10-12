@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
 
-public class Prompts {
-
+public class Prompts
+{
     public List<String> _prompts = new List<String>();
     public Random _randomGenerator;
 
-
-    public Prompts() {
+    public Prompts()
+    {
         //creating prompts and storing them inside the list
         _prompts = new List<string>
-
         {
-            "What was the best part of your day?", 
+            "What was the best part of your day?",
             "Describe a challenge you faced recently.",
             "What are you grateful for today?",
             "What made you smile today?",
@@ -32,5 +31,4 @@ public class Prompts {
         //getting random index for random prompt
         return _prompts[index];
     }
-
-} 
+}
