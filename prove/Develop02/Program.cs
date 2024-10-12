@@ -1,6 +1,7 @@
 using System;
 using System.IO;
-
+// exceed the requirements: I added a new option to the menu
+// it deletes a specific entry from a specific file.
 class Program
 {
     static void Main(string[] args)
