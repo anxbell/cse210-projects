@@ -8,7 +8,7 @@ public class Fraction { //Create the Fraction class
 
 
     public Fraction(){ //Constructors 
-
+//methods
         _top = 1;
         _bottom = 1;
 
@@ -22,13 +22,13 @@ public class Fraction { //Create the Fraction class
 
     }
 
-    public Fraction(int top, int bottom) //Setters
+    public Fraction(int top, int bottom) //setter
     {
         _top = top;
         _bottom = bottom;
     }
 
-    public string GetFractionString(){
+    public string GetFractionString(){//getter
 
         string text = $"{_top}/{_bottom}";
             return text;
