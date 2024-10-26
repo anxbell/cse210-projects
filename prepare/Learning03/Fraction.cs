@@ -42,3 +42,10 @@ public class Fraction { //Create the Fraction class
     }
 
     }
+
+// What Is a Lambda Expression?
+// A lambda expression is a way to write a short, inline function. It lets you create functions without needing to define them separately. In C#, lambda expressions often look like this:
+
+// x => x * x// 
+
+//This means "for each x, return x * x."
