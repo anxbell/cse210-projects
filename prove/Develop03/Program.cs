@@ -1,3 +1,4 @@
+//For showing creativity, this program works with a library of scriptures instead of just one. It randomly selects scriptures to present to the user.
 using System;
 using System.Collections.Generic;
 class Program
