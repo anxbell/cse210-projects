@@ -1,3 +1,4 @@
+//Shows creativity and exceeds core requirements: I added Visualization Activity.
 using System;
 
 class Program
