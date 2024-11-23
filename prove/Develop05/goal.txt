@@ -1,0 +1,6 @@
+910
+SimpleGoal:Give a talk,Speak in Sacrament meeting when asked,100,True
+EternalGoal:Study the scriptures,Study for at least 10 minutes,50
+ChecklistGoal:Attend the temple,Attent and perform any ordinance,50,3,3,500
+SimpleGoal:Read a new book,Discover new kind of books,50,True
+ChecklistGoal:Study the book of mormon,Study at least one chapter,10,1,400,800
