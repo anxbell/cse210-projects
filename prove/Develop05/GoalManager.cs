@@ -17,7 +17,7 @@ public class GoalManager
         Console.Write("What is a short description of it? ");
         string description = Console.ReadLine();
 
-        Console.Write("What is the amount o points associated with this goal: ");
+        Console.Write("What is the amount of points associated with this goal: ");
         int points = int.Parse(Console.ReadLine());
 
         if (type == 1)
