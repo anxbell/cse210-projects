@@ -4,8 +4,7 @@ public class ShortAnswerQuestion : Question
 {
     private string _correctAnswer;
 
-    public ShortAnswerQuestion(string text, int points, string correctAnswer)
-        : base(text, points)
+    public ShortAnswerQuestion(string text, int points, string correctAnswer) : base(text, points)
     {
         _correctAnswer = correctAnswer;
     }

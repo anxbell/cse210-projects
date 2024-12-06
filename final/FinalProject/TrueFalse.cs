@@ -4,8 +4,7 @@ public class TrueFalseQuestion : Question
 {
     private bool _correctAnswer;
 
-    public TrueFalseQuestion(string text, int points, bool correctAnswer)
-        : base(text, points)
+    public TrueFalseQuestion(string text, int points, bool correctAnswer) : base(text, points)
     {
         _correctAnswer = correctAnswer;
     }

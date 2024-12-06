@@ -7,38 +7,46 @@ public class Program
     {
         //  quizzes
         Quiz generalKnowledgeQuiz = new Quiz("General Knowledge");
-        generalKnowledgeQuiz.AddQuestion(new MultipleChoiceQuestion(
-            "What is the capital of France?",
-            10,
-            new List<string> { "Madrid", "Paris", "Berlin", "Rome" },
-            "b"
-        ));
-        generalKnowledgeQuiz.AddQuestion(new TrueFalseQuestion(
-            "The Great Wall of China can be seen from space.",
-            5,
-            false
-        ));
-        generalKnowledgeQuiz.AddQuestion(new ShortAnswerQuestion(
-            "Who wrote the play 'Romeo and Juliet'?",
-            10,
-            "Shakespeare"
-        ));
+        generalKnowledgeQuiz.AddQuestion(
+            new MultipleChoiceQuestion(
+                "What is the capital of France?",
+                10,
+                new List<string> { "Madrid", "Paris", "Berlin", "Rome" },
+                "b"
+            )
+        );
+        generalKnowledgeQuiz.AddQuestion(
+            new TrueFalseQuestion("The Great Wall of China can be seen from space.", 5, false)
+        );
+        generalKnowledgeQuiz.AddQuestion(
+            new ShortAnswerQuestion("Who wrote the play 'Romeo and Juliet'?", 10, "Shakespeare")
+        );
 
         Quiz scienceQuiz = new Quiz("Science");
-        scienceQuiz.AddQuestion(new MultipleChoiceQuestion(
-            "What is the chemical symbol for water?",
-            5,
-            new List<string> { "H2O", "O2", "CO2", "H2" },
-            "a"
-        ));
+        scienceQuiz.AddQuestion(
+            new MultipleChoiceQuestion(
+                "What is the chemical symbol for water?",
+                5,
+                new List<string> { "H2O", "O2", "CO2", "H2" },
+                "a"
+            )
+        );
 
         Quiz historyQuiz = new Quiz("History");
-        historyQuiz.AddQuestion(new MultipleChoiceQuestion(
-            "Who was the first President of the United States?",
-            5,
-            new List<string> { "Abraham Lincoln", "George Washington", "Thomas Jefferson", "John Adams" },
-            "b"
-        ));
+        historyQuiz.AddQuestion(
+            new MultipleChoiceQuestion(
+                "Who was the first President of the United States?",
+                5,
+                new List<string>
+                {
+                    "Abraham Lincoln",
+                    "George Washington",
+                    "Thomas Jefferson",
+                    "John Adams"
+                },
+                "b"
+            )
+        );
 
         Leaderboard leaderboard = new Leaderboard();
         leaderboard.LoadFromFile("leaderboard.json");
@@ -53,7 +61,6 @@ public class Program
 
         while (continuePlaying)
         {
-
             Console.Clear();
             Console.WriteLine("=== Choose a Quiz Topic ===");
             Console.WriteLine("1. General Knowledge");
@@ -101,8 +108,9 @@ public class Program
                 int score = selectedQuiz.StartQuiz();
                 user.UpdateScore(score);
 
-
-                Console.WriteLine($"\nYour total score for this quiz: {score}/{selectedQuiz.TotalPossiblePoints()} points");
+                Console.WriteLine(
+                    $"\nYour total score for this quiz: {score}/{selectedQuiz.TotalPossiblePoints()} points"
+                );
                 Console.WriteLine("Well done! \u263A");
 
                 // add user score once

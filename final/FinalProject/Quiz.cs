@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Quiz
 {
     private List<Question> _questions = new List<Question>();
-    public string _topic;  
+    public string _topic;
 
     public Quiz(string topic)
     {
@@ -47,7 +47,7 @@ public class Quiz
         int totalPoints = 0;
         foreach (var question in _questions)
         {
-            totalPoints += question.GetPoints();  
+            totalPoints += question.GetPoints();
         }
         return totalPoints;
     }

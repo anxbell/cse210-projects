@@ -6,8 +6,16 @@ public class User
     private string _name;
     private int _score;
 
-    public string name { get => _name; set => _name = value; }
-    public int score { get => _score; set => _score = value; }
+    public string name
+    {
+        get => _name;
+        set => _name = value;
+    }
+    public int score
+    {
+        get => _score;
+        set => _score = value;
+    }
 
     public User(string name)
     {

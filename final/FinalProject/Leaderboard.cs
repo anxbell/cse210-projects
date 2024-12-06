@@ -9,7 +9,8 @@ public class Leaderboard
 
     // update user in the leaderboard
     public void AddUser(User user)
-    {//if user exists
+    { //if user exists (no names repeated)
+    //asking for usernames instead of names in menu guide the user if it exist or not
         var existingUser = Users.Find(u => u.name == user.name);
         if (existingUser != null)
         {
@@ -36,7 +37,10 @@ public class Leaderboard
 
     public void SaveToFile(string fileName)
     {
-        string json = JsonSerializer.Serialize(Users, new JsonSerializerOptions { WriteIndented = true });
+        string json = JsonSerializer.Serialize(
+            Users,
+            new JsonSerializerOptions { WriteIndented = true }
+        );
         File.WriteAllText(fileName, json);
     }
 

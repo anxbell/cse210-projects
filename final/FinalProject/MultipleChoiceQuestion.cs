@@ -6,8 +6,12 @@ public class MultipleChoiceQuestion : Question
     private List<string> _options;
     private string _correctAnswer;
 
-    public MultipleChoiceQuestion(string text, int points, List<string> options, string correctAnswer)
-        : base(text, points)
+    public MultipleChoiceQuestion(
+        string text,
+        int points,
+        List<string> options,
+        string correctAnswer
+    ) : base(text, points)
     {
         _options = options;
         _correctAnswer = correctAnswer;
