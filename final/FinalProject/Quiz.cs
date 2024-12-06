@@ -4,12 +4,11 @@ using System.Collections.Generic;
 public class Quiz
 {
     private List<Question> _questions = new List<Question>();
-    public string Topic { get; private set; }  // Added property to store the quiz topic
+    public string _topic;  
 
-    // Modified constructor to accept a topic name
     public Quiz(string topic)
     {
-        Topic = topic;
+        _topic = topic;
     }
 
     public void AddQuestion(Question question)
@@ -23,7 +22,7 @@ public class Quiz
 
         foreach (var question in _questions)
         {
-            // Runtime polymorphism: Displaying and validating questions dynamically
+            // displaying and validating questions dynamically
             question.DisplayQuestion();
             Console.Write("Enter your answer: ");
             string _userAnswer = Console.ReadLine();
@@ -43,13 +42,12 @@ public class Quiz
         return score;
     }
 
-    // Method to calculate the total possible points for the quiz
     public int TotalPossiblePoints()
     {
         int totalPoints = 0;
         foreach (var question in _questions)
         {
-            totalPoints += question.GetPoints();  // Accumulate points from each question
+            totalPoints += question.GetPoints();  
         }
         return totalPoints;
     }

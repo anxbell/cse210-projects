@@ -5,7 +5,7 @@ public class Program
 {
     static void Main()
     {
-        // Create quizzes
+        //  quizzes
         Quiz generalKnowledgeQuiz = new Quiz("General Knowledge");
         generalKnowledgeQuiz.AddQuestion(new MultipleChoiceQuestion(
             "What is the capital of France?",
@@ -40,13 +40,11 @@ public class Program
             "b"
         ));
 
-        // Load leaderboard
         Leaderboard leaderboard = new Leaderboard();
         leaderboard.LoadFromFile("leaderboard.json");
 
         Console.WriteLine("Welcome to the Quiz Application! \u263A");
 
-        // Ask for the user's name once before the loop
         Console.Write("Enter your name: ");
         string userName = Console.ReadLine();
         User user = new User(userName);
@@ -55,7 +53,7 @@ public class Program
 
         while (continuePlaying)
         {
-            // Topic selection with clearer formatting
+
             Console.Clear();
             Console.WriteLine("=== Choose a Quiz Topic ===");
             Console.WriteLine("1. General Knowledge");
@@ -81,12 +79,12 @@ public class Program
                     selectedQuiz = historyQuiz;
                     break;
                 case "4":
-                    // Display leaderboard and wait for the user to press a key to return to the menu
+                    // display leaderboard and wait for the user
                     Console.Clear();
                     leaderboard.DisplayLeaderboard();
                     Console.WriteLine("\nPress any key to return to the main menu...");
                     Console.ReadKey();
-                    continue; // Go back to the main menu
+                    continue; // back  main menu
                 case "5":
                     continuePlaying = false;
                     break;
@@ -97,25 +95,24 @@ public class Program
 
             if (selectedQuiz != null)
             {
-                // Starting the quiz and displaying the score after finishing
+                // start the quiz and displaying the score after finishing
                 Console.Clear();
-                Console.WriteLine($"Starting {selectedQuiz.Topic} Quiz:");
+                Console.WriteLine($"Starting {selectedQuiz._topic} Quiz:");
                 int score = selectedQuiz.StartQuiz();
                 user.UpdateScore(score);
 
-                // Feedback about the score
+
                 Console.WriteLine($"\nYour total score for this quiz: {score}/{selectedQuiz.TotalPossiblePoints()} points");
                 Console.WriteLine("Well done! \u263A");
 
-                // Update leaderboard for this session (add user score once)
+                // add user score once
                 leaderboard.AddUser(user);
                 leaderboard.SaveToFile("leaderboard.json");
 
-                // Display updated leaderboard
+                // updated leaderboard
                 leaderboard.DisplayLeaderboard();
             }
 
-            // Wait for the user to press a key to continue or quit
             if (continuePlaying)
             {
                 Console.WriteLine("\nPress any key to go back to the menu...");

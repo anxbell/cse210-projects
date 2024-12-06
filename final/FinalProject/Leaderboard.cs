@@ -7,24 +7,23 @@ public class Leaderboard
 {
     public List<User> Users { get; private set; } = new List<User>();
 
-    // Add or update user in the leaderboard
+    // update user in the leaderboard
     public void AddUser(User user)
-    {
-        // Check if the user already exists
+    {//if user exists
         var existingUser = Users.Find(u => u.name == user.name);
         if (existingUser != null)
         {
-            // Update the existing user's score
+            // update user's score
             existingUser.UpdateScore(user.GetScore());
         }
         else
         {
-            // Add new user if not found
+            // add new user if not found
             Users.Add(user);
         }
     }
 
-    // Display the leaderboard
+    // display the leaderboard
     public void DisplayLeaderboard()
     {
         Console.WriteLine("\nLeaderboard:");
