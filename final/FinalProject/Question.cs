@@ -3,8 +3,12 @@ using System.Reflection.Metadata;
 
 public abstract class Question
 {
-    protected string _text;
-    protected int _points;
+    private string _text;
+    private int _points;
+
+    //getters
+    public string GetText() => _text;
+    public int GetPoints() => _points;
 
     public Question(string text, int points)
     {
@@ -14,6 +18,4 @@ public abstract class Question
 
     public abstract void DisplayQuestion();
     public abstract bool CheckAnswer(string answer);
-
-    public int GetPoints() => _points;
 }

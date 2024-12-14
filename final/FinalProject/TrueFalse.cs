@@ -11,7 +11,7 @@ public class TrueFalseQuestion : Question
 
     public override void DisplayQuestion()
     {
-        Console.WriteLine(_text + " (true/false)");
+        Console.WriteLine(GetText() + " (true/false)");
     }
 
     public override bool CheckAnswer(string answer)

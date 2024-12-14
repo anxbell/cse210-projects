@@ -19,7 +19,7 @@ public class MultipleChoiceQuestion : Question
 
     public override void DisplayQuestion()
     {
-        Console.WriteLine(_text);
+        Console.WriteLine(GetText());
         for (int i = 0; i < _options.Count; i++)
         {
             Console.WriteLine($"{(char)('a' + i)}) {_options[i]}");
