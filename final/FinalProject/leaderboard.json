@@ -1,14 +1,42 @@
 [
   {
-    "name": "John",
-    "score": 30
+    "name": "Camille",
+    "score": 545
   },
   {
-    "name": "Camille",
+    "name": "John",
+    "score": 350
+  },
+  {
+    "name": "Juan",
+    "score": 260
+  },
+  {
+    "name": "Pete",
+    "score": 150
+  },
+  {
+    "name": "pepe",
+    "score": 150
+  },
+  {
+    "name": "Hoho",
+    "score": 70
+  },
+  {
+    "name": "Karen",
     "score": 40
   },
   {
-    "name": "Jane",
-    "score": 5
+    "name": "Leo",
+    "score": 30
+  },
+  {
+    "name": "Popeye",
+    "score": 30
+  },
+  {
+    "name": "Valerie",
+    "score": 30
   }
 ]

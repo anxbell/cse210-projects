@@ -11,7 +11,7 @@ public class Leaderboard
     public void AddUser(User user)
     { //if user exists (no names repeated)
     //asking for usernames instead of names in menu guide the user if it exist or not
-        var existingUser = Users.Find(u => u.name == user.name);
+        var existingUser = Users.Find(u => u.GetUserName() == user.GetUserName());
         if (existingUser != null)
         {
             // update user's score
@@ -25,24 +25,40 @@ public class Leaderboard
     }
 
     // display the leaderboard
-    public void DisplayLeaderboard()
+public void DisplayLeaderboard()
+{
+    Console.WriteLine("\n========== Leaderboard ==========");
+
+    // Sort the users by score in descending order
+    Users.Sort((user1, user2) => user2.GetScore().CompareTo(user1.GetScore()));
+
+    Console.WriteLine($"{"Rank",-5}{"Player",-20}{"Score",10}");
+    Console.WriteLine(new string('=', 40));
+
+    int rank = 1;
+    foreach (var user in Users)
     {
-        Console.WriteLine("\nLeaderboard:");
-        foreach (var user in Users)
-        {
-            Console.WriteLine($"{user.GetUserName()}: {user.GetScore()} points");
-        }
-        Console.WriteLine();
+        Console.WriteLine($"{rank,-5}{user.GetUserName(),-20}{user.GetScore(),10}");
+        rank++;
     }
 
-    public void SaveToFile(string fileName)
+    Console.WriteLine(new string('=', 40));
+    Console.WriteLine();
+}
+
+
+public void SaveToFile(string fileName)
     {
+        // sort before saving
+        Users.Sort((user1, user2) => user2.GetScore().CompareTo(user1.GetScore()));
+
         string json = JsonSerializer.Serialize(
             Users,
             new JsonSerializerOptions { WriteIndented = true }
         );
         File.WriteAllText(fileName, json);
     }
+
 
     public void LoadFromFile(string fileName)
     {

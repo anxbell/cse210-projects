@@ -11,7 +11,7 @@ public class ShortAnswerQuestion : Question
 
     public override void DisplayQuestion()
     {
-        Console.WriteLine(_text);
+        Console.WriteLine(GetText());
     }
 
     public override bool CheckAnswer(string answer)

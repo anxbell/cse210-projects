@@ -4,11 +4,16 @@ using System.Collections.Generic;
 public class Quiz
 {
     private List<Question> _questions = new List<Question>();
-    public string _topic;
+    private string _topic;
 
     public Quiz(string topic)
     {
         _topic = topic;
+    }
+
+    public string GetTopic()
+    {
+        return _topic;
     }
 
     public void AddQuestion(Question question)

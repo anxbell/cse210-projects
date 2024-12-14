@@ -104,7 +104,7 @@ public class Program
             {
                 // start the quiz and displaying the score after finishing
                 Console.Clear();
-                Console.WriteLine($"Starting {selectedQuiz._topic} Quiz:");
+                Console.WriteLine($"Starting {selectedQuiz.GetTopic()} Quiz:");
                 int score = selectedQuiz.StartQuiz();
                 user.UpdateScore(score);
 
