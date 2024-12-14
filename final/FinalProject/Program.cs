@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 
 public class Program
 {
     static void Main()
     {
-        //  quizzes
+        // Create quizzes
         Quiz generalKnowledgeQuiz = new Quiz("General Knowledge");
         generalKnowledgeQuiz.AddQuestion(
             new MultipleChoiceQuestion(
@@ -72,52 +71,56 @@ public class Program
             Console.Write("Enter your choice (1-5): ");
             string choice = Console.ReadLine();
 
+            // Input validation for quiz selection
+            if (!int.TryParse(choice, out int selectedOption) || selectedOption < 1 || selectedOption > 5)
+            {
+                Console.WriteLine("Invalid choice. Please enter a number between 1 and 5.");
+                Console.WriteLine("Press any key to try again...");
+                Console.ReadKey();
+                continue;
+            }
+
             Quiz selectedQuiz = null;
 
-            switch (choice)
+            switch (selectedOption)
             {
-                case "1":
+                case 1:
                     selectedQuiz = generalKnowledgeQuiz;
                     break;
-                case "2":
+                case 2:
                     selectedQuiz = scienceQuiz;
                     break;
-                case "3":
+                case 3:
                     selectedQuiz = historyQuiz;
                     break;
-                case "4":
-                    // display leaderboard and wait for the user
+                case 4:
                     Console.Clear();
                     leaderboard.DisplayLeaderboard();
                     Console.WriteLine("\nPress any key to return to the main menu...");
                     Console.ReadKey();
-                    continue; // back  main menu
-                case "5":
+                    continue;
+                case 5:
                     continuePlaying = false;
                     break;
-                default:
-                    Console.WriteLine("Invalid choice. Please choose a valid option.");
-                    continue;
             }
 
             if (selectedQuiz != null)
             {
-                // start the quiz and displaying the score after finishing
                 Console.Clear();
                 Console.WriteLine($"Starting {selectedQuiz.GetTopic()} Quiz:");
                 int score = selectedQuiz.StartQuiz();
-                user.UpdateScore(score);
+
+                User sessionUser = new User(userName);
+                sessionUser.UpdateScore(score);
 
                 Console.WriteLine(
                     $"\nYour total score for this quiz: {score}/{selectedQuiz.TotalPossiblePoints()} points"
                 );
                 Console.WriteLine("Well done! \u263A");
 
-                // add user score once
-                leaderboard.AddUser(user);
+                leaderboard.AddUser(sessionUser);
                 leaderboard.SaveToFile("leaderboard.json");
 
-                // updated leaderboard
                 leaderboard.DisplayLeaderboard();
             }
 

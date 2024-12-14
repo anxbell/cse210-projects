@@ -32,16 +32,24 @@ public class Quiz
             Console.Write("Enter your answer: ");
             string _userAnswer = Console.ReadLine();
 
+            // validation for user answers
+            while (string.IsNullOrWhiteSpace(_userAnswer))
+            {
+                Console.WriteLine("Invalid input. Please provide an answer.");
+                Console.Write("Enter your answer: ");
+                _userAnswer = Console.ReadLine(); 
+                
+            }
+
             if (question.CheckAnswer(_userAnswer))
             {
-                Console.WriteLine("Correct! \u263A");
                 score += question.GetPoints();
+                Console.WriteLine("Correct! \u2713");
             }
             else
             {
-                Console.WriteLine("Incorrect.");
+                Console.WriteLine($"Incorrect.");
             }
-            Console.WriteLine();
         }
 
         return score;

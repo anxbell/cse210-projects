@@ -11,7 +11,7 @@ public class Leaderboard
     public void AddUser(User user)
     { //if user exists (no names repeated)
     //asking for usernames instead of names in menu guide the user if it exist or not
-        var existingUser = Users.Find(u => u.GetUserName() == user.GetUserName());
+        var existingUser = Users.Find(u => u.name == user.name);
         if (existingUser != null)
         {
             // update user's score
