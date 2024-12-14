@@ -10,7 +10,7 @@ public class Leaderboard
     // update user in the leaderboard
     public void AddUser(User user)
     { //if user exists (no names repeated)
-    //asking for usernames instead of names in menu guide the user if it exist or not
+        //asking for usernames instead of names in menu guide the user if it exist or not
         var existingUser = Users.Find(u => u.name == user.name);
         if (existingUser != null)
         {
@@ -25,29 +25,28 @@ public class Leaderboard
     }
 
     // display the leaderboard
-public void DisplayLeaderboard()
-{
-    Console.WriteLine("\n========== Leaderboard ==========");
-
-    // Sort the users by score in descending order
-    Users.Sort((user1, user2) => user2.GetScore().CompareTo(user1.GetScore()));
-
-    Console.WriteLine($"{"Rank",-5}{"Player",-20}{"Score",10}");
-    Console.WriteLine(new string('=', 40));
-
-    int rank = 1;
-    foreach (var user in Users)
+    public void DisplayLeaderboard()
     {
-        Console.WriteLine($"{rank,-5}{user.GetUserName(),-20}{user.GetScore(),10}");
-        rank++;
+        Console.WriteLine("\n============= Leaderboard ==============");
+
+        // Sort the users by score in descending order
+        Users.Sort((user1, user2) => user2.GetScore().CompareTo(user1.GetScore()));
+
+        Console.WriteLine($"{"Rank", -5}{"Player", -20}{"Score", 10}");
+        Console.WriteLine(new string('=', 40));
+
+        int rank = 1;
+        foreach (var user in Users)
+        {
+            Console.WriteLine($"{rank, -5}{user.GetUserName(), -20}{user.GetScore(), 10}");
+            rank++;
+        }
+
+        Console.WriteLine(new string('=', 40));
+        Console.WriteLine();
     }
 
-    Console.WriteLine(new string('=', 40));
-    Console.WriteLine();
-}
-
-
-public void SaveToFile(string fileName)
+    public void SaveToFile(string fileName)
     {
         // sort before saving
         Users.Sort((user1, user2) => user2.GetScore().CompareTo(user1.GetScore()));
@@ -58,7 +57,6 @@ public void SaveToFile(string fileName)
         );
         File.WriteAllText(fileName, json);
     }
-
 
     public void LoadFromFile(string fileName)
     {

@@ -37,8 +37,7 @@ public class Quiz
             {
                 Console.WriteLine("Invalid input. Please provide an answer.");
                 Console.Write("Enter your answer: ");
-                _userAnswer = Console.ReadLine(); 
-                
+                _userAnswer = Console.ReadLine();
             }
 
             if (question.CheckAnswer(_userAnswer))

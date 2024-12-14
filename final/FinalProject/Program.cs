@@ -2,7 +2,7 @@ using System;
 
 public class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         // Create quizzes
         Quiz generalKnowledgeQuiz = new Quiz("General Knowledge");
@@ -71,8 +71,11 @@ public class Program
             Console.Write("Enter your choice (1-5): ");
             string choice = Console.ReadLine();
 
-            // Input validation for quiz selection
-            if (!int.TryParse(choice, out int selectedOption) || selectedOption < 1 || selectedOption > 5)
+            if (
+                !int.TryParse(choice, out int selectedOption)
+                || selectedOption < 1
+                || selectedOption > 5
+            )
             {
                 Console.WriteLine("Invalid choice. Please enter a number between 1 and 5.");
                 Console.WriteLine("Press any key to try again...");
